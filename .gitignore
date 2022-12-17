@@ -25,3 +25,6 @@ hs_err_pid*
 build/
 deploy/
 dist/
+nbproject/
+settings/
+test/
