@@ -35,6 +35,7 @@ public final class DataVisualizer {
     private final Font defaultFont;
     private Color fontColorPrimary;
     private Color fontColorSecondary;
+    private Color fontColorRed;
     private final Graph graph = new Graph();
     private final JLabel combatOutText = new JLabel();
     private final JLabel combatInText = new JLabel();
@@ -88,8 +89,9 @@ public final class DataVisualizer {
     protected final void updateColors() {
         fontColorPrimary = Tools.calcBestBlackWhiteColor(settings.getPrimaryColor());
         fontColorSecondary = Tools.calcPercentageColor(fontColorPrimary, settings.getPrimaryColor(), .5);
+        fontColorRed = new Color(255,0,0);
         combatOutText.setForeground(fontColorPrimary);
-        combatInText.setForeground(fontColorSecondary);
+        combatInText.setForeground(fontColorRed);
         graph.updateColors();
     }
 
@@ -383,7 +385,7 @@ public final class DataVisualizer {
                 g.drawPolyline(outX, outY, outSize);
             }
             // Draw the incoming-line
-            g.setColor(Tools.calcPercentageColor(bgColor, outColor, .5));
+            g.setColor(fontColorRed);
             for (ArrayList<DoublePoint> inPoints : inPointsLists) {
                 int inSize = inPoints.size();
                 int[] inX = new int[inSize];
