@@ -22,13 +22,14 @@ import livedpsgraph.Tools.DataObject;
 /**
  *
  * @author Marco de Zeeuw <iciclesoft.com>
+ * Fixed for December 2022 game logs by willl03@github (IG = Captain Alcatraz)
  */
 public final class FileReader {
 
     private static final FileReader instance = new FileReader();
     private final AppSettings settings = AppSettings.getInstance();
     private final String sep = File.separator;
-    private final Pattern fileNamePattern = Pattern.compile("^\\d{8}[_]\\d+.txt$", Pattern.CASE_INSENSITIVE);
+    private final Pattern fileNamePattern = Pattern.compile("^\\d{8}[_]\\d+[_]\\d+.txt$", Pattern.CASE_INSENSITIVE);
     private final Pattern dateTimePattern = Pattern.compile("\\d{4}.\\d{2}.\\d{2}[ ]*\\d{2}:\\d{2}:\\d{2}");
     private final Pattern simpleCombatPattern = Pattern.compile("\\(combat\\)");
     private final Pattern combatPattern = Pattern.compile("\\(combat\\)\\d+[A-Za-z]{2,4}");
